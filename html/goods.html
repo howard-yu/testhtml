@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meia</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Meia">
+    <meta name="keywords" content="Meia">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Meia">
+    <meta property="og:description" content="Meia">
+    <meta property="og:url" content="/">
+    <meta property="og:image" content="/images/fb_share.jpg?1531799561515">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="msapplication-TileImage" content="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="css/screen.css" rel="stylesheet">
+    <link href="css/semantic.min.css" rel="stylesheet">
+    <link href="css/calendar.min.css" rel="stylesheet">
+    <link href="css/css.css?1531799561515" rel="stylesheet">
+    <script src="js/libs/html5shiv.min.js"></script>
+  </head>
+  <body>
+    <div class="ui mini modal" id="checkDel">
+      <div class="header">確定刪除？</div>
+      <div class="content">
+        <p>一但刪除就無法回復，確定刪除這筆資料嗎?</p>
+      </div>
+      <div class="actions"><a class="ui negative button">取消</a><a class="ui positive right labeled icon button">確定<i class="checkmark icon"></i></a></div>
+    </div>
+    <div class="ui mini modal" id="checkOrder">
+      <div class="header">確定訂貨？</div>
+      <div class="content">
+        <p>確認訂貨後將轉為入庫單，請到貨後至庫存管理進行入庫操作。</p>
+      </div>
+      <div class="actions"><a class="ui negative button">取消</a><a class="ui positive right labeled icon button">確定<i class="checkmark icon"></i></a></div>
+    </div>
+    <div class="ui modal" id="orderDetail">
+      <div class="header">訂貨單明細<span>(171220001487)</span></div>
+      <div class="scrolling content">
+        <table class="ui celled structured table" id="orderListTable">
+          <thead>
+            <tr>
+              <th class="collapsing center aligned">商品圖片</th>
+              <th>商品名稱</th>
+              <th class="collapsing center aligned">規格</th>
+              <th class="collapsing center aligned">訂貨量</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="collapsing center aligned" rowspan="3">
+                <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
+              </td>
+              <td rowspan="3">
+                <div class="postDetail">
+                  <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
+                </div>
+              </td>
+              <td class="collapsing center aligned">藍100</td>
+              <td class="center aligned">5</td>
+            </tr>
+            <tr>
+              <td class="collapsing center aligned">黑100</td>
+              <td class="center aligned">2</td>
+            </tr>
+            <tr>
+              <td class="collapsing center aligned">紅100</td>
+              <td class="center aligned">6</td>
+            </tr>
+            <tr>
+              <td class="collapsing center aligned" rowspan="3">
+                <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
+              </td>
+              <td rowspan="3">
+                <div class="postDetail">
+                  <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
+                </div>
+              </td>
+              <td class="collapsing center aligned">藍100</td>
+              <td class="center aligned">5</td>
+            </tr>
+            <tr>
+              <td class="collapsing center aligned">黑100</td>
+              <td class="center aligned">2</td>
+            </tr>
+            <tr>
+              <td class="collapsing center aligned">紅100</td>
+              <td class="center aligned">6</td>
+            </tr>
+            <tr>
+              <td class="collapsing center aligned" rowspan="3">
+                <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
+              </td>
+              <td rowspan="3">
+                <div class="postDetail">
+                  <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
+                </div>
+              </td>
+              <td class="collapsing center aligned">藍100</td>
+              <td class="center aligned">5</td>
+            </tr>
+            <tr>
+              <td class="collapsing center aligned">黑100</td>
+              <td class="center aligned">2</td>
+            </tr>
+            <tr>
+              <td class="collapsing center aligned">紅100</td>
+              <td class="center aligned">6</td>
+            </tr>
+            <tr>
+              <td class="collapsing center aligned" rowspan="3">
+                <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
+              </td>
+              <td rowspan="3">
+                <div class="postDetail">
+                  <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
+                </div>
+              </td>
+              <td class="center collapsing aligned">藍100</td>
+              <td class="center aligned">5</td>
+            </tr>
+            <tr>
+              <td class="center collapsing aligned">黑100</td>
+              <td class="center aligned">2</td>
+            </tr>
+            <tr>
+              <td class="center collapsing aligned">紅100</td>
+              <td class="center aligned">6</td>
+            </tr>
+            <tr>
+              <td class="collapsing center aligned" rowspan="3">
+                <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
+              </td>
+              <td rowspan="3">
+                <div class="postDetail">
+                  <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
+                </div>
+              </td>
+              <td class="center collapsing aligned">藍100</td>
+              <td class="center aligned">5</td>
+            </tr>
+            <tr>
+              <td class="center collapsing aligned">黑100</td>
+              <td class="center aligned">2</td>
+            </tr>
+            <tr>
+              <td class="center collapsing aligned">紅100</td>
+              <td class="center aligned">6</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="actions"><a class="ui right labeled icon button blue">列印<i class="print icon"></i></a><a class="ui positive right labeled icon button">確定<i class="checkmark icon"></i></a></div>
+    </div>
+    <div class="ui fixed menu">
+      <div class="ui container"><a class="header item" href="#"><img class="logo" src="images/logo2.png"></a>
+        <div class="right menu"><a class="item" href="postList.html"><i class="comments icon"></i>商品管理</a><a class="item" href="orderList.html"><i class="edit icon"></i>訂單管理</a><a class="item" href="goods.html"><i class="sign in icon"></i>訂貨管理</a><a class="item" href="checkout.html"><i class="money bill alternate icon"></i>結帳管理</a><a class="item" href="instock.html"><i class="sign in icon"></i>庫存管理</a><a class="item" href="shipList.html"><i class="shipping icon"></i>出貨管理</a><a class="item" href="report.html"><i class="bar chart icon"></i>分析報表</a>
+          <div class="ui simple dropdown item" tabindex="0"><img class="ui mini circular image" src="https://semantic-ui.com/images/avatar/large/steve.jpg"><i class="dropdown icon"></i>
+            <div class="menu"><a class="item" href="profile.html"><i class="info circle icon"></i>帳號資訊</a><a class="item" href="settings.html"><i class="cogs icon"></i>系統設定</a><a class="item" href="javascript:void(0)"><i class="address card icon"></i>會員管理</a>
+              <div class="ui divider"></div><a class="item" href="signin.html"><i class="sign out alternate icon"></i>登出</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui container main">
+      <small-breadcrumb></small-breadcrumb>
+      <h1 class="ui header">訂貨管理</h1>
+      <div class="ui middle aligned grid" id="topFunction">
+        <div class="left floated six wide column">
+          <div class="ui action left icon input"><i class="search icon"></i>
+            <input type="text" placeholder="請輸入關鍵字">
+            <div class="ui meia button">搜尋</div>
+          </div>
+        </div>
+        <div class="right aligned six wide column"></div>
+      </div>
+      <table class="ui celled table" id="orderListTable">
+        <thead>
+          <tr>
+            <th>訂貨單號</th>
+            <th class="center aligned">結單區間</th>
+            <th class="center aligned">訂貨單明細</th>
+            <th class="center aligned">確認訂貨</th>
+            <th class="center aligned">入庫</th>
+            <th class="center aligned">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-id="0">
+            <td>171220001487</td>
+            <td class="center aligned">2017/12/25 - 2018/1/25</td>
+            <td class="collapsing">
+              <button class="ui small button grey" onclick="orderDetail('20171201000001')"><i class="unhide icon"></i>訂貨單明細</button>
+            </td>
+            <td class="collapsing">
+              <button class="ui small button teal" onclick="orderCheck('20171201000001')"><i class="check icon"></i>確認訂貨</button>
+            </td>
+            <td class="collapsing"><a class="ui small button meia disabled" href="addInstock.html?oid=123455"><i class="check icon"></i>入庫</a></td>
+            <td class="collapsing">
+              <button class="ui icon button blue"><i class="print icon"></i></button>
+              <button class="ui icon button red"><i class="trash icon"></i></button>
+            </td>
+          </tr>
+          <tr data-id="1">
+            <td>171220001487</td>
+            <td class="center aligned">2017/12/25 - 2018/1/25</td>
+            <td class="collapsing">
+              <button class="ui small button grey" onclick="orderDetail('20171201000001')"><i class="unhide icon"></i>訂貨單明細</button>
+            </td>
+            <td class="collapsing">
+              <button class="ui small button teal disabled" onclick="orderCheck('20171201000001')"><i class="check icon"></i>已訂貨</button>
+            </td>
+            <td class="collapsing"><a class="ui small button meia" href="addInstock.html?oid=123455"><i class="check icon"></i>入庫</a></td>
+            <td class="collapsing">
+              <button class="ui icon button blue"><i class="print icon"></i></button>
+              <button class="ui icon button red"><i class="trash icon"></i></button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="6">
+              <div class="ui grid">
+                <div class="ui left floated three wide column">
+                  <div class="fields">
+                    <div class="inline field">
+                      <select class="ui fluid search dropdown" name="card[expire-month]">
+                        <option value="">每頁50筆</option>
+                        <option value="1">每頁100筆</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui right floated nine wide column">
+                  <div class="ui right floated pagination menu"><a class="icon item"><i class="left chevron icon"></i></a><a class="item active">1</a><a class="item">2</a><a class="item">3</a><a class="item">4</a><a class="icon item"><i class="right chevron icon"></i></a></div>
+                </div>
+              </div>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <footer>
+      <div class="ui grid">
+        <div class="two column row">
+          <div class="column left aligned">
+            <p>© 2017 Meia 小麥科技</p>
+          </div>
+          <div class="column right aligned"><a href="terms.html">隱私權政策</a></div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/device.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
+    <script src="js/libs/semantic.min.js"></script>
+    <script src="js/libs/jquery.tablesort.min.js"></script>
+    <script src="js/libs/calendar.min.js"></script>
+    <script src="js/script.min.js?1531799561515"></script>
+  </body>
+  <script>
+    Vue.component('small-breadcrumb', {
+      template: '<div class="ui small breadcrumb">\
+                      <a class="section">{{ section }}</a>\
+                      <i class="right chevron icon divider"></i>\
+                      <div class="active section text dark">{{ activedark }}</div>\
+                  </div>',
+      data: function() {
+          return sectiondata;
+      }
+    });
+
+    var sectiondata = {
+      section: '首頁',
+      activedark: '訂貨管理'
+    }
+
+    var goodslist = new Vue({
+        el: "div.ui.container.main",
+        data: {
+          header:'訂貨管理',
+          pagesize: [
+            {text: '每頁10筆', value: 10},
+            {text: '每頁50筆', value: 50},
+            {text: '每頁100筆', value: 100},
+          ],
+        },
+    });
+  </script>
+</html>

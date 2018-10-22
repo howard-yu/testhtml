@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meia</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Meia">
+    <meta name="keywords" content="Meia">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Meia">
+    <meta property="og:description" content="Meia">
+    <meta property="og:url" content="/">
+    <meta property="og:image" content="/images/fb_share.jpg?1531911885149">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="msapplication-TileImage" content="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="css/screen.css" rel="stylesheet">
+    <link href="css/semantic.min.css" rel="stylesheet">
+    <link href="css/calendar.min.css" rel="stylesheet">
+    <link href="css/css.css?1531911885149" rel="stylesheet">
+    <script src="js/libs/html5shiv.min.js"></script>
+  </head>
+  <body>
+    <div class="ui mini modal" id="checkDel">
+      <div class="header">確定刪除？</div>
+      <div class="content">
+        <p>一但刪除就無法回復，確定刪除這筆資料嗎?</p>
+      </div>
+      <div class="actions"><a class="ui negative button">取消</a><a class="ui positive right labeled icon button">確定<i class="checkmark icon"></i></a></div>
+    </div>
+    <div class="ui fixed menu">
+      <div class="ui container"><a class="header item" href="#"><img class="logo" src="images/logo2.png"></a>
+        <div class="right menu"><a class="item" href="postList.html"><i class="comments icon"></i>商品管理</a><a class="item" href="orderList.html"><i class="edit icon"></i>訂單管理</a><a class="item" href="goods.html"><i class="sign in icon"></i>訂貨管理</a><a class="item" href="checkout.html"><i class="money bill alternate icon"></i>結帳管理</a><a class="item" href="instock.html"><i class="sign in icon"></i>庫存管理</a><a class="item" href="shipList.html"><i class="shipping icon"></i>出貨管理</a><a class="item" href="report.html"><i class="bar chart icon"></i>分析報表</a>
+          <div class="ui simple dropdown item" tabindex="0"><img class="ui mini circular image" src="https://semantic-ui.com/images/avatar/large/steve.jpg"><i class="dropdown icon"></i>
+            <div class="menu"><a class="item" href="profile.html"><i class="info circle icon"></i>帳號資訊</a><a class="item" href="settings.html"><i class="cogs icon"></i>系統設定</a><a class="item" href="javascript:void(0)"><i class="address card icon"></i>會員管理</a>
+              <div class="ui divider"></div><a class="item" href="signin.html"><i class="sign out alternate icon"></i>登出</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui container main">
+      <div class="ui small breadcrumb"><a class="section">首頁</a><i class="right chevron icon divider"></i><a class="section" href="orderList.html">訂單列表</a><i class="right chevron icon divider"></i>
+        <div class="active section text dark">訂單編輯</div>
+      </div>
+      <h1 class="ui header">訂單資訊</h1>
+      <div id="fixedFunction">
+        <div class="ui middle aligned grid">
+          <div class="left floated four wide column"><a class="ui small button grey floated left inverted large" href="orderList.html"><i class="reply icon"></i>返回列表</a></div>
+          <div class="right aligned ten wide column"><a class="ui small button meia inverted large"><i class="save icon"></i>儲存編輯</a></div>
+        </div>
+      </div>
+      <div class="ui styled fluid accordion" id="orderInfo">
+        <div class="title active"><i class="dropdown icon"></i>    訂單資訊</div>
+        <div class="content active">
+          <form class="ui form">
+            <div class="field">
+              <div class="five fields">
+                <div class="field">
+                  <label>訂單狀態</label>
+                  <select class="ui fluid dropdown" name="orderStatus">
+                    <option value="0">待確認</option>
+                    <option value="1">已付款</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>FB暱稱</label>
+                  <input class="readonly" type="text" name="fbName" value="Eiji Lee" readonly>
+                </div>
+                <div class="field">
+                  <label>FBID</label>
+                  <input class="readonly" type="text" name="fbID" value="1245688456561" readonly>
+                </div>
+                <div class="field">
+                  <label>需付金額</label>
+                  <input class="highlight" type="number" name="totalPrice" value="6880">
+                </div>
+                <div class="field">
+                  <label>已付金額</label>
+                  <input type="number" name="payPrice" value="0">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="title"><i class="dropdown icon"></i>    付款資訊</div>
+        <div class="content">
+          <form class="ui form">
+            <div class="field">
+              <div class="five fields">
+                <div class="field">
+                  <label>付款方式</label>
+                  <select class="ui fluid dropdown" name="orderStatus">
+                    <option value="0">請選擇付款方式</option>
+                    <option value="1">超商取貨付款</option>
+                    <option value="2">ATM轉帳</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="title"><i class="dropdown icon"></i>    取貨資訊</div>
+        <div class="content">
+          <form class="ui form">
+            <div class="field">
+              <div class="two fields">
+                <div class="field">
+                  <div class="two fields">
+                    <div class="field">
+                      <label>收件人姓名</label>
+                      <input type="text" name="receverName" value="" placeholder="請輸入收件人姓名">
+                    </div>
+                    <div class="field">
+                      <label>聯絡電話</label>
+                      <input type="text" name="receverPhone" value="" placeholder="請輸入收件人電話">
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <label>取件地址</label>
+                  <div class="two fields">
+                    <div class="field">
+                      <div class="two fields">
+                        <div class="field">
+                          <select class="ui fluid dropdown" name="receverCity">
+                            <option value="">縣市</option>
+                            <option value="1">台北市</option>
+                          </select>
+                        </div>
+                        <div class="field">
+                          <select class="ui fluid dropdown" name="receverZone">
+                            <option value="">鄉鎮市區</option>
+                            <option value="1">內湖區</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="one fields">
+                        <input type="text" name="receverAddress" value="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <h1 class="ui header">訂單明細</h1>
+      <table class="ui celled table" id="orderListTable">
+        <thead>
+          <tr>
+            <th class="center aligned">#</th>
+            <th colspan="2">商品資訊</th>
+            <th class="center aligned">規格</th>
+            <th class="center aligned">數量</th>
+            <th class="center aligned">單價</th>
+            <th class="center aligned">小計</th>
+            <th class="center aligned">配貨</th>
+            <th class="collapsing center aligned">斷貨</th>
+            <th class="center aligned">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-id="0">
+            <td class="collapsing">1</td>
+            <td class="collapsing"><img class="ui mini rounded image" src="https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C"></td>
+            <td>
+              <div class="content"><a>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</a>
+                <div class="sub header minifont">留言時間：2017/10/11 23:15:30</div>
+              </div>
+            </td>
+            <td class="collapsing">
+              <p>藍100</p>
+            </td>
+            <td class="collapsing center aligned">
+              <div class="ui input inTableInput">
+                <input type="number" value="2">
+              </div>
+            </td>
+            <td class="collapsing center aligned">
+              <div class="ui input inTableInput">
+                <input type="number" value="299">
+              </div>
+            </td>
+            <td class="collapsing2 collapsing center aligned">
+              <div class="postDetail">
+                <p><span class="currency">299</span></p>
+              </div>
+            </td>
+            <td class="center aligned">
+              <div class="ui action input qty">
+                <button class="ui icon button minus"><i class="minus icon"></i></button>
+                <input class="aligned" type="text" value="0">
+                <button class="ui icon button plus"><i class="plus icon"></i></button>
+              </div>
+            </td>
+            <td class="center aligned"><span class="text green">-</span></td>
+            <td class="collapsing">
+              <button class="ui icon button red" onclick="chkDelMsg(0)"><i class="trash icon"></i></button>
+            </td>
+          </tr>
+          <tr data-id="1">
+            <td class="collapsing">1</td>
+            <td class="collapsing"><img class="ui mini rounded image" src="https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C"></td>
+            <td>
+              <div class="content"><a>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</a>
+                <div class="sub header minifont">留言時間：2017/10/11 23:15:30</div>
+              </div>
+            </td>
+            <td class="collapsing">
+              <p>藍100</p>
+            </td>
+            <td class="collapsing center aligned">
+              <div class="ui input inTableInput">
+                <input type="number" value="2">
+              </div>
+            </td>
+            <td class="collapsing center aligned">
+              <div class="ui input inTableInput">
+                <input type="number" value="299">
+              </div>
+            </td>
+            <td class="collapsing2 collapsing center aligned">
+              <div class="postDetail">
+                <p><span class="currency">299</span></p>
+              </div>
+            </td>
+            <td class="center aligned">
+              <div class="ui action input qty">
+                <button class="ui icon button minus"><i class="minus icon"></i></button>
+                <input class="aligned" type="text" value="0">
+                <button class="ui icon button plus"><i class="plus icon"></i></button>
+              </div>
+            </td>
+            <td class="center aligned"><span class="text green">-</span></td>
+            <td class="collapsing">
+              <button class="ui icon button red" onclick="chkDelMsg(1)"><i class="trash icon"></i></button>
+            </td>
+          </tr>
+          <tr data-id="2">
+            <td class="collapsing">1</td>
+            <td class="collapsing"><img class="ui mini rounded image" src="https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C"></td>
+            <td>
+              <div class="content"><a>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</a>
+                <div class="sub header minifont">留言時間：2017/10/11 23:15:30</div>
+              </div>
+            </td>
+            <td class="collapsing">
+              <p>藍100</p>
+            </td>
+            <td class="collapsing center aligned">
+              <div class="ui input inTableInput">
+                <input type="number" value="2">
+              </div>
+            </td>
+            <td class="collapsing center aligned">
+              <div class="ui input inTableInput">
+                <input type="number" value="299">
+              </div>
+            </td>
+            <td class="collapsing2 collapsing center aligned">
+              <div class="postDetail">
+                <p><span class="currency">299</span></p>
+              </div>
+            </td>
+            <td class="center aligned">
+              <div class="ui action input qty">
+                <button class="ui icon button minus"><i class="minus icon"></i></button>
+                <input class="aligned" type="text" value="0">
+                <button class="ui icon button plus"><i class="plus icon"></i></button>
+              </div>
+            </td>
+            <td class="center aligned"><span class="text green">-</span></td>
+            <td class="collapsing">
+              <button class="ui icon button red" onclick="chkDelMsg(2)"><i class="trash icon"></i></button>
+            </td>
+          </tr>
+          <tr data-id="3">
+            <td class="collapsing">1</td>
+            <td class="collapsing"><img class="ui mini rounded image" src="https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C"></td>
+            <td>
+              <div class="content"><a>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</a>
+                <div class="sub header minifont">留言時間：2017/10/11 23:15:30</div>
+              </div>
+            </td>
+            <td class="collapsing">
+              <p>藍100</p>
+            </td>
+            <td class="collapsing center aligned">
+              <div class="ui input inTableInput">
+                <input type="number" value="2">
+              </div>
+            </td>
+            <td class="collapsing center aligned">
+              <div class="ui input inTableInput">
+                <input type="number" value="299">
+              </div>
+            </td>
+            <td class="collapsing2 collapsing center aligned">
+              <div class="postDetail">
+                <p><span class="currency">299</span></p>
+              </div>
+            </td>
+            <td class="center aligned">
+              <div class="ui action input qty">
+                <button class="ui icon button minus"><i class="minus icon"></i></button>
+                <input class="aligned" type="text" value="0">
+                <button class="ui icon button plus"><i class="plus icon"></i></button>
+              </div>
+            </td>
+            <td class="center aligned"><span class="text green">-</span></td>
+            <td class="collapsing">
+              <button class="ui icon button red" onclick="chkDelMsg(3)"><i class="trash icon"></i></button>
+            </td>
+          </tr>
+          <tr data-id="4">
+            <td class="collapsing">1</td>
+            <td class="collapsing"><img class="ui mini rounded image" src="https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C"></td>
+            <td>
+              <div class="content"><a>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</a>
+                <div class="sub header minifont">留言時間：2017/10/11 23:15:30</div>
+              </div>
+            </td>
+            <td class="collapsing">
+              <p>藍100</p>
+            </td>
+            <td class="collapsing center aligned">
+              <div class="ui input inTableInput">
+                <input type="number" value="2">
+              </div>
+            </td>
+            <td class="collapsing center aligned">
+              <div class="ui input inTableInput">
+                <input type="number" value="299">
+              </div>
+            </td>
+            <td class="collapsing2 collapsing center aligned">
+              <div class="postDetail">
+                <p><span class="currency">299</span></p>
+              </div>
+            </td>
+            <td class="center aligned">
+              <div class="ui action input qty">
+                <button class="ui icon button minus"><i class="minus icon"></i></button>
+                <input class="aligned" type="text" value="0">
+                <button class="ui icon button plus"><i class="plus icon"></i></button>
+              </div>
+            </td>
+            <td class="center aligned"><span class="text green">-</span></td>
+            <td class="collapsing">
+              <button class="ui icon button red" onclick="chkDelMsg(4)"><i class="trash icon"></i></button>
+            </td>
+          </tr>
+          <tr data-id="5">
+            <td class="collapsing">1</td>
+            <td class="collapsing"><img class="ui mini rounded image" src="https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C"></td>
+            <td>
+              <div class="content"><a>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</a>
+                <div class="sub header minifont">留言時間：2017/10/11 23:15:30</div>
+              </div>
+            </td>
+            <td class="collapsing">
+              <p>藍100</p>
+            </td>
+            <td class="collapsing center aligned">
+              <div class="ui input inTableInput">
+                <input type="number" value="2">
+              </div>
+            </td>
+            <td class="collapsing center aligned">
+              <div class="ui input inTableInput">
+                <input type="number" value="299">
+              </div>
+            </td>
+            <td class="collapsing2 collapsing center aligned">
+              <div class="postDetail">
+                <p><span class="currency">299</span></p>
+              </div>
+            </td>
+            <td class="center aligned">
+              <div class="ui action input qty">
+                <button class="ui icon button minus"><i class="minus icon"></i></button>
+                <input class="aligned" type="text" value="0">
+                <button class="ui icon button plus"><i class="plus icon"></i></button>
+              </div>
+            </td>
+            <td class="center aligned"><span class="text green">-</span></td>
+            <td class="collapsing">
+              <button class="ui icon button red" onclick="chkDelMsg(5)"><i class="trash icon"></i></button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="10">
+              <div class="ui grid">
+                <div class="ui four wide column">
+                  <div class="ui large labeled input fluid">
+                    <div class="ui grey label"><i class="shipping icon"></i>    運費</div>
+                    <input type="number" value="0">
+                  </div>
+                </div>
+                <div class="ui four wide column">
+                  <div class="ui large labeled input fluid">
+                    <div class="ui grey label"><i class="ticket icon"></i>    折扣</div>
+                    <input type="number" value="0">
+                  </div>
+                </div>
+                <div class="ui four wide column">
+                  <div class="ui large labeled input fluid">
+                    <div class="ui grey label"><i class="shop icon"></i>    購物金</div>
+                    <input type="number" value="0">
+                  </div>
+                </div>
+                <div class="ui four wide column" id="totalPrice">
+                  <div class="ui large labeled input fluid">
+                    <div class="ui meia label"><i class="money icon"></i>    訂單金額</div>
+                    <input type="text" value="6880" readonly>
+                  </div>
+                </div>
+              </div>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <footer>
+      <div class="ui grid">
+        <div class="two column row">
+          <div class="column left aligned">
+            <p>© 2017 Meia 小麥科技</p>
+          </div>
+          <div class="column right aligned"><a href="terms.html">隱私權政策</a></div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/device.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
+    <script src="js/libs/semantic.min.js"></script>
+    <script src="js/libs/jquery.tablesort.min.js"></script>
+    <script src="js/libs/calendar.min.js"></script>
+    <script src="js/script.min.js?1531911885149"></script>
+  </body>
+</html>

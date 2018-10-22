@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meia</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Meia">
+    <meta name="keywords" content="Meia">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Meia">
+    <meta property="og:description" content="Meia">
+    <meta property="og:url" content="/">
+    <meta property="og:image" content="/images/fb_share.jpg?1531827459534">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="msapplication-TileImage" content="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="css/screen.css" rel="stylesheet">
+    <link href="css/semantic.min.css" rel="stylesheet">
+    <link href="css/calendar.min.css" rel="stylesheet">
+    <link href="css/css.css?1531827459534" rel="stylesheet">
+    <script src="js/libs/html5shiv.min.js"></script>
+  </head>
+  <body>
+    <div class="ui middle aligned center aligned grid">
+      <div class="column" id="login"><img class="image" src="images/logo.png">
+        <div class="ui large buttons" id="loginTab">
+          <button class="ui button active" onclick="changeLogin(1,this)">登入會員</button>
+          <div class="or"></div>
+          <button class="ui button" onclick="changeLogin(0,this)">立即註冊</button>
+        </div>
+        <form class="ui large form" id="loginform">
+          <div class="ui segment">
+            <div class="field">
+              <div class="ui left icon input"><i class="user icon"></i>
+                <input type="text" name="phone" placeholder="請輸入手機號碼">
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left icon input"><i class="lock icon"></i>
+                <input type="password" name="password" placeholder="請輸入密碼">
+              </div>
+            </div><a class="ui fluid large meia submit button" href="postList.html">登入</a>
+          </div>
+        </form>
+        <form class="ui large form" id="signUp">
+          <div class="ui segment">
+            <div class="field">
+              <div class="ui left icon input"><i class="user icon"></i>
+                <input type="text" name="phone" placeholder="請輸入手機號碼">
+              </div>
+            </div>
+            <div class="fields two">
+              <div class="field">
+                <div class="ui fluid large teal submit button">取得驗證碼</div>
+              </div>
+              <div class="field">
+                <div class="ui left icon input"><i class="shield alternate icon"></i>
+                  <input type="text" name="checkcode" placeholder="請輸入六位數驗證碼">
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left icon input"><i class="key icon"></i>
+                <input type="password" name="pwd" placeholder="請輸入密碼">
+              </div>
+            </div><a class="ui fluid large meia submit button" href="postList.html">註冊會員</a>
+          </div>
+          <div class="ui error message"></div>
+        </form>
+      </div>
+    </div>
+    <footer>
+      <div class="ui grid">
+        <div class="two column row">
+          <div class="column left aligned">
+            <p>© 2017 Meia 小麥科技</p>
+          </div>
+          <div class="column right aligned"><a href="terms.html">隱私權政策</a></div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/device.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
+    <script src="js/libs/semantic.min.js"></script>
+    <script src="js/libs/jquery.tablesort.min.js"></script>
+    <script src="js/libs/calendar.min.js"></script>
+    <script src="js/script.min.js?1531827459534"></script>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meia</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Meia">
+    <meta name="keywords" content="Meia">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Meia">
+    <meta property="og:description" content="Meia">
+    <meta property="og:url" content="/">
+    <meta property="og:image" content="/images/fb_share.jpg?1531911390803">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="msapplication-TileImage" content="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="css/screen.css" rel="stylesheet">
+    <link href="css/semantic.min.css" rel="stylesheet">
+    <link href="css/calendar.min.css" rel="stylesheet">
+    <link href="css/css.css?1531911390803" rel="stylesheet">
+    <script src="js/libs/html5shiv.min.js"></script>
+  </head>
+  <body>
+    <div class="ui mini modal" id="checkDel">
+      <div class="header">確定刪除？</div>
+      <div class="content">
+        <p>一但刪除就無法回復，確定刪除這筆資料嗎?</p>
+      </div>
+      <div class="actions"><a class="ui negative button">取消</a><a class="ui positive right labeled icon button">確定<i class="checkmark icon"></i></a></div>
+    </div>
+    <div class="ui fixed menu">
+      <div class="ui container"><a class="header item" href="#"><img class="logo" src="images/logo2.png"></a>
+        <div class="right menu"><a class="item" href="postList.html"><i class="comments icon"></i>商品管理</a><a class="item" href="orderList.html"><i class="edit icon"></i>訂單管理</a><a class="item" href="goods.html"><i class="sign in icon"></i>訂貨管理</a><a class="item" href="checkout.html"><i class="money bill alternate icon"></i>結帳管理</a><a class="item" href="instock.html"><i class="sign in icon"></i>庫存管理</a><a class="item" href="shipList.html"><i class="shipping icon"></i>出貨管理</a><a class="item" href="report.html"><i class="bar chart icon"></i>分析報表</a>
+          <div class="ui simple dropdown item" tabindex="0"><img class="ui mini circular image" src="https://semantic-ui.com/images/avatar/large/steve.jpg"><i class="dropdown icon"></i>
+            <div class="menu"><a class="item" href="profile.html"><i class="info circle icon"></i>帳號資訊</a><a class="item" href="settings.html"><i class="cogs icon"></i>系統設定</a><a class="item" href="javascript:void(0)"><i class="address card icon"></i>會員管理</a>
+              <div class="ui divider"></div><a class="item" href="signin.html"><i class="sign out alternate icon"></i>登出</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui container main">
+      <div class="ui small breadcrumb"><a class="section">首頁</a><i class="right chevron icon divider"></i><a class="section" href="postList.html">商品管理</a><i class="right chevron icon divider"></i>
+        <div class="active section text dark">新增商品</div>
+      </div>
+      <form class="ui form" id="productAdd">
+        <div class="field">
+          <h3 class="ui header">商品規格設定</h3>
+          <input id="productName" type="text" name="productName" placeholder="商品名稱" value="">
+        </div>
+        <div class="field">
+          <h3 class="ui header">商品價格</h3>
+          <input id="productPrice" type="text" name="productPrice" placeholder="商品價格" value="">
+        </div>
+        <div class="field">
+          <h3 class="ui header">商品描述</h3>
+          <textarea></textarea>
+        </div>
+        <div class="field">
+          <h3 class="ui header">上傳圖片</h3>
+          <input id="ProductImg" type="file">
+        </div>
+        <div class="field">
+          <div class="ui small images"></div>
+        </div>
+      </form>
+      <h3 class="ui header">商品規格設定</h3>
+      <div class="ui middle aligned grid" id="topFunction">
+        <div class="left floated six wide column">
+          <div class="ui labeled input">
+            <div class="ui label">成團低標</div>
+            <input type="text" placeholder="成團數量" value="10">
+          </div>
+        </div>
+        <div class="right aligned six wide column"></div>
+      </div>
+      <table class="ui celled table" id="proEditTable">
+        <thead>
+          <tr>
+            <th class="center aligned">規格</th>
+            <th class="center aligned">商品售價</th>
+            <th class="center aligned">
+              <button class="ui small icon button teal" onclick="addRow()"><i class="plus icon"></i></button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-id="0">
+            <td class="center aligned">
+              <div class="ui input">
+                <input type="text" placeholder="ex S M L..." value="">
+              </div>
+            </td>
+            <td class="center aligned">
+              <div class="ui input">
+                <input type="text" placeholder="$" value="">
+              </div>
+            </td>
+            <td class="collapsing center aligned">
+              <button class="ui small icon button red" onclick="delRow(0)"><i class="minus icon"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="fixedFunction">
+        <div class="ui middle aligned grid">
+          <div class="left floated seven wide column"><a class="ui small button grey floated left inverted large" href="postList.html"><i class="reply icon"></i>返回列表</a></div>
+          <div class="right aligned seven wide column"><a class="ui small button meia inverted large" href="purchase.html"><i class="cubes icon"></i>新增商品</a></div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="ui grid">
+        <div class="two column row">
+          <div class="column left aligned">
+            <p>© 2017 Meia 小麥科技</p>
+          </div>
+          <div class="column right aligned"><a href="terms.html">隱私權政策</a></div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/device.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
+    <script src="js/libs/semantic.min.js"></script>
+    <script src="js/libs/jquery.tablesort.min.js"></script>
+    <script src="js/libs/calendar.min.js"></script>
+    <script src="js/script.min.js?1531911390803"></script>
+  </body>
+</html>
