@@ -187,6 +187,11 @@
           </tr>
         </thead>
         <tbody>
+            <tr>
+
+            </tr>
+        </tbody>
+        <tbody>
           <tr data-id="0">
             <td>171220001487</td>
             <td class="center aligned">2017/12/25 - 2018/1/25</td>
@@ -225,9 +230,10 @@
                 <div class="ui left floated three wide column">
                   <div class="fields">
                     <div class="inline field">
-                      <select class="ui fluid search dropdown" name="card[expire-month]">
-                        <option value="">每頁50筆</option>
-                        <option value="1">每頁100筆</option>
+                      <select class="ui fluid search dropdown" name="card[expire-month]" v-model="goodModel.showcount" >
+                        <option v-for="option in pagesize" v-bind:value="option.value">
+                          {{ option.text }}
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -284,6 +290,51 @@
             {text: '每頁50筆', value: 50},
             {text: '每頁100筆', value: 100},
           ],
+
+          goodsUrl: 'http://localhost:7398/manage/api/stock/GetPurchaseList',
+
+          goodModel: {
+            page: 1,
+            count: 0,
+            keywords: '',
+            showcount: 50,
+            total: 0,
+          },
+          msg: '',
+          goodslistdata: [],
+          filteredRowCount: null,
+        },
+
+        computed: {
+            pageStart: function(){
+                return (this.goodModel.page - 1) * this.goodModel.showcount;
+            },
+            totalPage: function(){
+                if(this.goodModel.total == 0)
+                    return
+                return Math.ceil(this.goodModel.total / this.goodModel.showcount);
+            },
+        },
+
+        mounteds: {
+          setPage: function(idx){
+              if( idx <= 0 || idx > this.totalPage ){
+                  return;
+              }
+              this.goodModel.page = idx;
+          },
+          searchgoods: function() {
+            var vm = this
+            vm.goodslistdata = [];
+            vm.goodModel.count = 0;
+            vm.goodModel.total = 0;
+            vm.goodModel.page = 1;
+            vm.msg = '' 
+            $.ajax({
+              url: vm.goodsUrl,
+              type:'POST',
+            })
+          }
         },
     });
   </script>
