@@ -169,8 +169,8 @@
       <div class="ui middle aligned grid" id="topFunction">
         <div class="left floated six wide column">
           <div class="ui action left icon input"><i class="search icon"></i>
-            <input type="text" placeholder="請輸入關鍵字">
-            <div class="ui meia button">搜尋</div>
+            <input type="text" placeholder="請輸入關鍵字" v-model="goodModel.keyword">
+            <div class="ui meia button" v-on:click="searchgoods()">搜尋</div>
           </div>
         </div>
         <div class="right aligned six wide column"></div>
@@ -187,41 +187,22 @@
           </tr>
         </thead>
         <tbody>
-            <tr>
-
+            <tr v-for="(item,index) in goodslistdata.slice(pageStart, pageStart + goodModel.showcount)">
+              <td :id="item.StockID" style="display:none"></td>
+              <td>{{ item.StockCode }}</td>
+              <td class="center aligned">{{ item.StartDate }} - {{ item.EndDate }}</td>
+              <td class="collapsing">
+                <button class="ui small button grey" v-on:click="orderDetail(item.StockID)"><i class="unhide icon"></i>訂貨單明細</button>
+              </td>
+              <td class="collapsing">
+                <button class="ui small button teal" onclick="orderCheck('20171201000001')"><i class="check icon"></i>確認訂貨</button>
+              </td>
+              <td class="collapsing"><a class="ui small button meia disabled" href="addInstock.html?oid=123455"><i class="check icon"></i>入庫</a></td>
+              <td class="collapsing">
+                <button class="ui icon button blue"><i class="print icon"></i></button>
+                <button class="ui icon button red"><i class="trash icon"></i></button>
+              </td>
             </tr>
-        </tbody>
-        <tbody>
-          <tr data-id="0">
-            <td>171220001487</td>
-            <td class="center aligned">2017/12/25 - 2018/1/25</td>
-            <td class="collapsing">
-              <button class="ui small button grey" onclick="orderDetail('20171201000001')"><i class="unhide icon"></i>訂貨單明細</button>
-            </td>
-            <td class="collapsing">
-              <button class="ui small button teal" onclick="orderCheck('20171201000001')"><i class="check icon"></i>確認訂貨</button>
-            </td>
-            <td class="collapsing"><a class="ui small button meia disabled" href="addInstock.html?oid=123455"><i class="check icon"></i>入庫</a></td>
-            <td class="collapsing">
-              <button class="ui icon button blue"><i class="print icon"></i></button>
-              <button class="ui icon button red"><i class="trash icon"></i></button>
-            </td>
-          </tr>
-          <tr data-id="1">
-            <td>171220001487</td>
-            <td class="center aligned">2017/12/25 - 2018/1/25</td>
-            <td class="collapsing">
-              <button class="ui small button grey" onclick="orderDetail('20171201000001')"><i class="unhide icon"></i>訂貨單明細</button>
-            </td>
-            <td class="collapsing">
-              <button class="ui small button teal disabled" onclick="orderCheck('20171201000001')"><i class="check icon"></i>已訂貨</button>
-            </td>
-            <td class="collapsing"><a class="ui small button meia" href="addInstock.html?oid=123455"><i class="check icon"></i>入庫</a></td>
-            <td class="collapsing">
-              <button class="ui icon button blue"><i class="print icon"></i></button>
-              <button class="ui icon button red"><i class="trash icon"></i></button>
-            </td>
-          </tr>
         </tbody>
         <tfoot>
           <tr>
@@ -239,7 +220,13 @@
                   </div>
                 </div>
                 <div class="ui right floated nine wide column">
-                  <div class="ui right floated pagination menu"><a class="icon item"><i class="left chevron icon"></i></a><a class="item active">1</a><a class="item">2</a><a class="item">3</a><a class="item">4</a><a class="icon item"><i class="right chevron icon"></i></a></div>
+                    <div class="ui right floated pagination menu">
+                        <a class="icon item" v-on:click.prevent="setPage(goodModel.page-1)"><i class="left chevron icon"></i></a>
+                        <div v-for="n in totalPage" v-on:click.prevent="setPage(n)">
+                            <a class="item active">{{n}}</a>
+                        </div>
+                        <a class="icon item" v-on:click.prevent="setPage(goodModel.page+1)"><i class="right chevron icon"></i></a>
+                    </div>
                 </div>
               </div>
             </th>
@@ -293,16 +280,26 @@
 
           goodsUrl: 'http://localhost:7398/manage/api/stock/GetPurchaseList',
 
+          gooddetailUrl: 'http://localhost:7398/manage/api/stock/GetPurchaseDetail',
+
           goodModel: {
             page: 1,
             count: 0,
-            keywords: '',
+            keyword: '',
             showcount: 50,
             total: 0,
           },
           msg: '',
           goodslistdata: [],
           filteredRowCount: null,
+
+          goodDetailModel: {
+            
+          }
+        },
+
+        mounted: function() {
+          this.searchgoods();
         },
 
         computed: {
@@ -316,7 +313,7 @@
             },
         },
 
-        mounteds: {
+        methods: {
           setPage: function(idx){
               if( idx <= 0 || idx > this.totalPage ){
                   return;
@@ -333,7 +330,19 @@
             $.ajax({
               url: vm.goodsUrl,
               type:'POST',
+              data : vm.goodModel,
+              success: function(data) {
+                vm.msg = 'ok'
+                vm.goodslistdata = data.data;
+                vm.goodModel.count = data.count;
+                vm.goodModel.total = data.total;
+                vm.goodModel.page = data.page;
+              },
+              error: vm.requestError
             })
+          },
+          orderDetail: function(detailid) {
+            alert(detailid)
           }
         },
     });
