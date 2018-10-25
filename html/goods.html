@@ -20,6 +20,7 @@
     <script src="js/libs/html5shiv.min.js"></script>
   </head>
   <body>
+    <div id="goodslist">
     <div class="ui mini modal" id="checkDel">
       <div class="header">確定刪除？</div>
       <div class="content">
@@ -34,8 +35,10 @@
       </div>
       <div class="actions"><a class="ui negative button">取消</a><a class="ui positive right labeled icon button">確定<i class="checkmark icon"></i></a></div>
     </div>
+    <modal :order-id="orderID"></modal>
+    <script type="text/x-template" id="modal-template">
     <div class="ui modal" id="orderDetail">
-      <div class="header">訂貨單明細<span>(171220001487)</span></div>
+      <div class="header">訂貨單明細<span>( {{ orderId }} )</span></div>
       <div class="scrolling content">
         <table class="ui celled structured table" id="orderListTable">
           <thead>
@@ -152,6 +155,7 @@
       </div>
       <div class="actions"><a class="ui right labeled icon button blue">列印<i class="print icon"></i></a><a class="ui positive right labeled icon button">確定<i class="checkmark icon"></i></a></div>
     </div>
+  </script>
     <div class="ui fixed menu">
       <div class="ui container"><a class="header item" href="#"><img class="logo" src="images/logo2.png"></a>
         <div class="right menu"><a class="item" href="postList.html"><i class="comments icon"></i>商品管理</a><a class="item" href="orderList.html"><i class="edit icon"></i>訂單管理</a><a class="item" href="goods.html"><i class="sign in icon"></i>訂貨管理</a><a class="item" href="checkout.html"><i class="money bill alternate icon"></i>結帳管理</a><a class="item" href="instock.html"><i class="sign in icon"></i>庫存管理</a><a class="item" href="shipList.html"><i class="shipping icon"></i>出貨管理</a><a class="item" href="report.html"><i class="bar chart icon"></i>分析報表</a>
@@ -192,7 +196,7 @@
               <td>{{ item.StockCode }}</td>
               <td class="center aligned">{{ item.StartDate }} - {{ item.EndDate }}</td>
               <td class="collapsing">
-                <button class="ui small button grey" v-on:click="orderDetail(item.StockID)"><i class="unhide icon"></i>訂貨單明細</button>
+                <button class="ui small button grey" v-on:click="orderDetail(item.StockID, item.StockCode)"><i class="unhide icon"></i>訂貨單明細</button>
               </td>
               <td class="collapsing">
                 <button class="ui small button teal" onclick="orderCheck('20171201000001')"><i class="check icon"></i>確認訂貨</button>
@@ -234,6 +238,7 @@
         </tfoot>
       </table>
     </div>
+  </div>
     <footer>
       <div class="ui grid">
         <div class="two column row">
@@ -264,13 +269,18 @@
       }
     });
 
+    Vue.component('modal', {
+      props: ['order-id'],
+      template: '#modal-template'
+    })
+
     var sectiondata = {
       section: '首頁',
       activedark: '訂貨管理'
     }
 
     var goodslist = new Vue({
-        el: "div.ui.container.main",
+        el: "#goodslist",
         data: {
           header:'訂貨管理',
           pagesize: [
@@ -294,8 +304,12 @@
           filteredRowCount: null,
 
           goodDetailModel: {
-            
-          }
+            stockID:'',
+          },
+
+          goodDetailList: [],
+
+          orderID:'',
         },
 
         mounted: function() {
@@ -341,9 +355,24 @@
               error: vm.requestError
             })
           },
-          orderDetail: function(detailid) {
-            alert(detailid)
-          }
+          orderDetail: function(detailid, orderid) {
+            var vm = this
+            vm.goodDetailList = [];
+            vm.goodDetailModel.stockID = detailid || ''
+            vm.orderID = orderid;
+            vm.msg = ''
+            $.ajax({
+              url: vm.gooddetailUrl,
+              type:'POST',
+              data : vm.goodDetailModel,
+              success: function(data) {
+                vm.msg = 'ok'
+                vm.goodDetailList = data;
+                $('#orderDetail.ui.modal').modal('show');
+              },
+              error: vm.requestError
+            })
+          },
         },
     });
   </script>
