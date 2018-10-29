@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Meia</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="description" content="Meia">
@@ -18,236 +18,241 @@
     <link href="css/calendar.min.css" rel="stylesheet">
     <link href="css/css.css?1531799561515" rel="stylesheet">
     <script src="js/libs/html5shiv.min.js"></script>
-  </head>
-  <body>
+</head>
+<body>
     <div id="goodslist">
-    <div class="ui mini modal" id="checkDel">
-      <div class="header">確定刪除？</div>
-      <div class="content">
-        <p>一但刪除就無法回復，確定刪除這筆資料嗎?</p>
-      </div>
-      <div class="actions"><a class="ui negative button">取消</a><a class="ui positive right labeled icon button">確定<i class="checkmark icon"></i></a></div>
-    </div>
-    <div class="ui mini modal" id="checkOrder">
-      <div class="header">確定訂貨？</div>
-      <div class="content">
-        <p>確認訂貨後將轉為入庫單，請到貨後至庫存管理進行入庫操作。</p>
-      </div>
-      <div class="actions"><a class="ui negative button">取消</a><a class="ui positive right labeled icon button">確定<i class="checkmark icon"></i></a></div>
-    </div>
-    <modal :order-id="orderID"></modal>
-    <script type="text/x-template" id="modal-template">
-    <div class="ui modal" id="orderDetail">
-      <div class="header">訂貨單明細<span>( {{ orderId }} )</span></div>
-      <div class="scrolling content">
-        <table class="ui celled structured table" id="orderListTable">
-          <thead>
-            <tr>
-              <th class="collapsing center aligned">商品圖片</th>
-              <th>商品名稱</th>
-              <th class="collapsing center aligned">規格</th>
-              <th class="collapsing center aligned">訂貨量</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="collapsing center aligned" rowspan="3">
-                <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
-              </td>
-              <td rowspan="3">
-                <div class="postDetail">
-                  <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
-                </div>
-              </td>
-              <td class="collapsing center aligned">藍100</td>
-              <td class="center aligned">5</td>
-            </tr>
-            <tr>
-              <td class="collapsing center aligned">黑100</td>
-              <td class="center aligned">2</td>
-            </tr>
-            <tr>
-              <td class="collapsing center aligned">紅100</td>
-              <td class="center aligned">6</td>
-            </tr>
-            <tr>
-              <td class="collapsing center aligned" rowspan="3">
-                <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
-              </td>
-              <td rowspan="3">
-                <div class="postDetail">
-                  <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
-                </div>
-              </td>
-              <td class="collapsing center aligned">藍100</td>
-              <td class="center aligned">5</td>
-            </tr>
-            <tr>
-              <td class="collapsing center aligned">黑100</td>
-              <td class="center aligned">2</td>
-            </tr>
-            <tr>
-              <td class="collapsing center aligned">紅100</td>
-              <td class="center aligned">6</td>
-            </tr>
-            <tr>
-              <td class="collapsing center aligned" rowspan="3">
-                <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
-              </td>
-              <td rowspan="3">
-                <div class="postDetail">
-                  <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
-                </div>
-              </td>
-              <td class="collapsing center aligned">藍100</td>
-              <td class="center aligned">5</td>
-            </tr>
-            <tr>
-              <td class="collapsing center aligned">黑100</td>
-              <td class="center aligned">2</td>
-            </tr>
-            <tr>
-              <td class="collapsing center aligned">紅100</td>
-              <td class="center aligned">6</td>
-            </tr>
-            <tr>
-              <td class="collapsing center aligned" rowspan="3">
-                <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
-              </td>
-              <td rowspan="3">
-                <div class="postDetail">
-                  <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
-                </div>
-              </td>
-              <td class="center collapsing aligned">藍100</td>
-              <td class="center aligned">5</td>
-            </tr>
-            <tr>
-              <td class="center collapsing aligned">黑100</td>
-              <td class="center aligned">2</td>
-            </tr>
-            <tr>
-              <td class="center collapsing aligned">紅100</td>
-              <td class="center aligned">6</td>
-            </tr>
-            <tr>
-              <td class="collapsing center aligned" rowspan="3">
-                <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
-              </td>
-              <td rowspan="3">
-                <div class="postDetail">
-                  <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
-                </div>
-              </td>
-              <td class="center collapsing aligned">藍100</td>
-              <td class="center aligned">5</td>
-            </tr>
-            <tr>
-              <td class="center collapsing aligned">黑100</td>
-              <td class="center aligned">2</td>
-            </tr>
-            <tr>
-              <td class="center collapsing aligned">紅100</td>
-              <td class="center aligned">6</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="actions"><a class="ui right labeled icon button blue">列印<i class="print icon"></i></a><a class="ui positive right labeled icon button">確定<i class="checkmark icon"></i></a></div>
-    </div>
-  </script>
-    <div class="ui fixed menu">
-      <div class="ui container"><a class="header item" href="#"><img class="logo" src="images/logo2.png"></a>
-        <div class="right menu"><a class="item" href="postList.html"><i class="comments icon"></i>商品管理</a><a class="item" href="orderList.html"><i class="edit icon"></i>訂單管理</a><a class="item" href="goods.html"><i class="sign in icon"></i>訂貨管理</a><a class="item" href="checkout.html"><i class="money bill alternate icon"></i>結帳管理</a><a class="item" href="instock.html"><i class="sign in icon"></i>庫存管理</a><a class="item" href="shipList.html"><i class="shipping icon"></i>出貨管理</a><a class="item" href="report.html"><i class="bar chart icon"></i>分析報表</a>
-          <div class="ui simple dropdown item" tabindex="0"><img class="ui mini circular image" src="https://semantic-ui.com/images/avatar/large/steve.jpg"><i class="dropdown icon"></i>
-            <div class="menu"><a class="item" href="profile.html"><i class="info circle icon"></i>帳號資訊</a><a class="item" href="settings.html"><i class="cogs icon"></i>系統設定</a><a class="item" href="javascript:void(0)"><i class="address card icon"></i>會員管理</a>
-              <div class="ui divider"></div><a class="item" href="signin.html"><i class="sign out alternate icon"></i>登出</a>
+        <div class="ui mini modal" id="checkDel">
+            <div class="header">確定刪除？</div>
+            <div class="content">
+                <p>一但刪除就無法回復，確定刪除這筆資料嗎?</p>
             </div>
-          </div>
+            <div class="actions"><a class="ui negative button">取消</a><a class="ui positive right labeled icon button">確定<i class="checkmark icon"></i></a></div>
         </div>
-      </div>
-    </div>
-    <div class="ui container main">
-      <small-breadcrumb></small-breadcrumb>
-      <h1 class="ui header">訂貨管理</h1>
-      <div class="ui middle aligned grid" id="topFunction">
-        <div class="left floated six wide column">
-          <div class="ui action left icon input"><i class="search icon"></i>
-            <input type="text" placeholder="請輸入關鍵字" v-model="goodModel.keyword">
-            <div class="ui meia button" v-on:click="searchgoods()">搜尋</div>
-          </div>
+        <div class="ui mini modal" id="checkOrder">
+            <div class="header">確定訂貨？</div>
+            <div class="content">
+                <p>確認訂貨後將轉為入庫單，請到貨後至庫存管理進行入庫操作。</p>
+            </div>
+            <div class="actions"><a class="ui negative button">取消</a><a class="ui positive right labeled icon button" v-on:click="confirmPurchase()">確定<i class="checkmark icon"></i></a></div>
         </div>
-        <div class="right aligned six wide column"></div>
-      </div>
-      <table class="ui celled table" id="orderListTable">
-        <thead>
-          <tr>
-            <th>訂貨單號</th>
-            <th class="center aligned">結單區間</th>
-            <th class="center aligned">訂貨單明細</th>
-            <th class="center aligned">確認訂貨</th>
-            <th class="center aligned">入庫</th>
-            <th class="center aligned">操作</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr v-for="(item,index) in goodslistdata.slice(pageStart, pageStart + goodModel.showcount)">
-              <td :id="item.StockID" style="display:none"></td>
-              <td>{{ item.StockCode }}</td>
-              <td class="center aligned">{{ item.StartDate }} - {{ item.EndDate }}</td>
-              <td class="collapsing">
-                <button class="ui small button grey" v-on:click="orderDetail(item.StockID, item.StockCode)"><i class="unhide icon"></i>訂貨單明細</button>
-              </td>
-              <td class="collapsing">
-                <button class="ui small button teal" onclick="orderCheck('20171201000001')"><i class="check icon"></i>確認訂貨</button>
-              </td>
-              <td class="collapsing"><a class="ui small button meia disabled" href="addInstock.html?oid=123455"><i class="check icon"></i>入庫</a></td>
-              <td class="collapsing">
-                <button class="ui icon button blue"><i class="print icon"></i></button>
-                <button class="ui icon button red"><i class="trash icon"></i></button>
-              </td>
-            </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <th colspan="6">
-              <div class="ui grid">
-                <div class="ui left floated three wide column">
-                  <div class="fields">
-                    <div class="inline field">
-                      <select class="ui fluid search dropdown" name="card[expire-month]" v-model="goodModel.showcount" >
-                        <option v-for="option in pagesize" v-bind:value="option.value">
-                          {{ option.text }}
-                        </option>
-                      </select>
-                    </div>
-                  </div>
+        <modal :order-id="orderID" :gooddetail-list="goodDetailList"></modal>
+        <!--<script type="text/x-template" id="modal-template">
+            <div class="ui modal" id="orderDetail">
+                <div class="header">訂貨單明細<span>({{ orderId }})</span></div>
+                <div class="scrolling content">
+                    <table class="ui celled structured table" id="orderListTable">
+                        <thead>
+                            <tr>
+                                <th class="collapsing center aligned">商品圖片</th>
+                                <th>商品名稱</th>
+                                <th class="collapsing center aligned">規格</th>
+                                <th class="collapsing center aligned">訂貨量</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="collapsing center aligned" rowspan="3">
+                                    <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
+                                </td>
+                                <td rowspan="3">
+                                    <div class="postDetail">
+                                        <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
+                                    </div>
+                                </td>
+                                <td class="collapsing center aligned">藍100</td>
+                                <td class="center aligned">5</td>
+                            </tr>
+                            <tr>
+                                <td class="collapsing center aligned">黑100</td>
+                                <td class="center aligned">2</td>
+                            </tr>
+                            <tr>
+                                <td class="collapsing center aligned">紅100</td>
+                                <td class="center aligned">6</td>
+                            </tr>
+                            <tr>
+                                <td class="collapsing center aligned" rowspan="3">
+                                    <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
+                                </td>
+                                <td rowspan="3">
+                                    <div class="postDetail">
+                                        <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
+                                    </div>
+                                </td>
+                                <td class="collapsing center aligned">藍100</td>
+                                <td class="center aligned">5</td>
+                            </tr>
+                            <tr>
+                                <td class="collapsing center aligned">黑100</td>
+                                <td class="center aligned">2</td>
+                            </tr>
+                            <tr>
+                                <td class="collapsing center aligned">紅100</td>
+                                <td class="center aligned">6</td>
+                            </tr>
+                            <tr>
+                                <td class="collapsing center aligned" rowspan="3">
+                                    <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
+                                </td>
+                                <td rowspan="3">
+                                    <div class="postDetail">
+                                        <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
+                                    </div>
+                                </td>
+                                <td class="collapsing center aligned">藍100</td>
+                                <td class="center aligned">5</td>
+                            </tr>
+                            <tr>
+                                <td class="collapsing center aligned">黑100</td>
+                                <td class="center aligned">2</td>
+                            </tr>
+                            <tr>
+                                <td class="collapsing center aligned">紅100</td>
+                                <td class="center aligned">6</td>
+                            </tr>
+                            <tr>
+                                <td class="collapsing center aligned" rowspan="3">
+                                    <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
+                                </td>
+                                <td rowspan="3">
+                                    <div class="postDetail">
+                                        <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
+                                    </div>
+                                </td>
+                                <td class="center collapsing aligned">藍100</td>
+                                <td class="center aligned">5</td>
+                            </tr>
+                            <tr>
+                                <td class="center collapsing aligned">黑100</td>
+                                <td class="center aligned">2</td>
+                            </tr>
+                            <tr>
+                                <td class="center collapsing aligned">紅100</td>
+                                <td class="center aligned">6</td>
+                            </tr>
+                            <tr>
+                                <td class="collapsing center aligned" rowspan="3">
+                                    <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
+                                </td>
+                                <td rowspan="3">
+                                    <div class="postDetail">
+                                        <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
+                                    </div>
+                                </td>
+                                <td class="center collapsing aligned">藍100</td>
+                                <td class="center aligned">5</td>
+                            </tr>
+                            <tr>
+                                <td class="center collapsing aligned">黑100</td>
+                                <td class="center aligned">2</td>
+                            </tr>
+                            <tr>
+                                <td class="center collapsing aligned">紅100</td>
+                                <td class="center aligned">6</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="ui right floated nine wide column">
-                    <div class="ui right floated pagination menu">
-                        <a class="icon item" v-on:click.prevent="setPage(goodModel.page-1)"><i class="left chevron icon"></i></a>
-                        <div v-for="n in totalPage" v-on:click.prevent="setPage(n)">
-                            <a class="item active">{{n}}</a>
+                <div class="actions"><a class="ui right labeled icon button blue">列印<i class="print icon"></i></a><a class="ui positive right labeled icon button">確定<i class="checkmark icon"></i></a></div>
+            </div>
+        </script>-->
+        <div class="ui fixed menu">
+            <div class="ui container">
+                <a class="header item" href="#"><img class="logo" src="images/logo2.png"></a>
+                <div class="right menu">
+                    <a class="item" href="postList.html"><i class="comments icon"></i>商品管理</a><a class="item" href="orderList.html"><i class="edit icon"></i>訂單管理</a><a class="item" href="goods.html"><i class="sign in icon"></i>訂貨管理</a><a class="item" href="checkout.html"><i class="money bill alternate icon"></i>結帳管理</a><a class="item" href="instock.html"><i class="sign in icon"></i>庫存管理</a><a class="item" href="shipList.html"><i class="shipping icon"></i>出貨管理</a><a class="item" href="report.html"><i class="bar chart icon"></i>分析報表</a>
+                    <div class="ui simple dropdown item" tabindex="0">
+                        <img class="ui mini circular image" src="https://semantic-ui.com/images/avatar/large/steve.jpg"><i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item" href="profile.html"><i class="info circle icon"></i>帳號資訊</a><a class="item" href="settings.html"><i class="cogs icon"></i>系統設定</a><a class="item" href="javascript:void(0)"><i class="address card icon"></i>會員管理</a>
+                            <div class="ui divider"></div><a class="item" href="signin.html"><i class="sign out alternate icon"></i>登出</a>
                         </div>
-                        <a class="icon item" v-on:click.prevent="setPage(goodModel.page+1)"><i class="right chevron icon"></i></a>
                     </div>
                 </div>
-              </div>
-            </th>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
-  </div>
-    <footer>
-      <div class="ui grid">
-        <div class="two column row">
-          <div class="column left aligned">
-            <p>© 2017 Meia 小麥科技</p>
-          </div>
-          <div class="column right aligned"><a href="terms.html">隱私權政策</a></div>
+            </div>
         </div>
-      </div>
+        <div class="ui container main">
+            <small-breadcrumb></small-breadcrumb>
+            <h1 class="ui header">訂貨管理</h1>
+            <div class="ui middle aligned grid" id="topFunction">
+                <div class="left floated six wide column">
+                    <div class="ui action left icon input">
+                        <i class="search icon"></i>
+                        <input type="text" placeholder="請輸入關鍵字" v-model="goodModel.keyword">
+                        <div class="ui meia button" v-on:click="searchgoods()">搜尋</div>
+                    </div>
+                </div>
+                <div class="right aligned six wide column"></div>
+            </div>
+            <table class="ui celled table" id="orderListTable">
+                <thead>
+                    <tr>
+                        <th>訂貨單號</th>
+                        <th class="center aligned">結單區間</th>
+                        <th class="center aligned">訂貨單明細</th>
+                        <th class="center aligned">確認訂貨</th>
+                        <th class="center aligned">入庫</th>
+                        <th class="center aligned">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item,index) in goodslistdata.slice(pageStart, pageStart + goodModel.showcount)">
+                        <td :id="item.StockID" style="display:none"></td>
+                        <td>{{ item.StockCode }}</td>
+                        <td class="center aligned">{{ item.StartDate }} - {{ item.EndDate }}</td>
+                        <td class="collapsing">
+                            <button class="ui small button grey" v-on:click="orderDetail(item.StockID, item.StockCode)"><i class="unhide icon"></i>訂貨單明細</button>
+                        </td>
+                        <td class="collapsing">
+                            <button :class="[classA, item.StockStatus === 0 ? 'disabled' : '']"  v-on:click="orderCheck(item.StockID)"><i class="check icon"></i>{{item.StockStatus ? "確認訂貨" : "已訂貨" }}</button>
+                        </td>
+                        <td class="collapsing"><a class="ui small button meia disabled" href="addInstock.html?oid=123455"><i class="check icon"></i>入庫</a></td>
+                        <td class="collapsing">
+                            <button class="ui icon button blue"><i class="print icon"></i></button>
+                            <button class="ui icon button red"><i class="trash icon"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="6">
+                            <div class="ui grid">
+                                <div class="ui left floated three wide column">
+                                    <div class="fields">
+                                        <div class="inline field">
+                                            <select class="ui fluid search dropdown" name="card[expire-month]" v-model="goodModel.showcount">
+                                                <option v-for="option in pagesize" v-bind:value="option.value">
+                                                    {{ option.text }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ui right floated nine wide column">
+                                    <div class="ui right floated pagination menu">
+                                        <a class="icon item" v-on:click.prevent="setPage(goodModel.page-1)"><i class="left chevron icon"></i></a>
+                                        <div v-for="n in totalPage" v-on:click.prevent="setPage(n)">
+                                            <a class="item active">{{n}}</a>
+                                        </div>
+                                        <a class="icon item" v-on:click.prevent="setPage(goodModel.page+1)"><i class="right chevron icon"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <div class="ui grid">
+            <div class="two column row">
+                <div class="column left aligned">
+                    <p>© 2017 Meia 小麥科技</p>
+                </div>
+                <div class="column right aligned"><a href="terms.html">隱私權政策</a></div>
+            </div>
+        </div>
     </footer>
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/device.min.js"></script>
@@ -256,8 +261,8 @@
     <script src="js/libs/jquery.tablesort.min.js"></script>
     <script src="js/libs/calendar.min.js"></script>
     <script src="js/script.min.js?1531799561515"></script>
-  </body>
-  <script>
+</body>
+<script>
     Vue.component('small-breadcrumb', {
       template: '<div class="ui small breadcrumb">\
                       <a class="section">{{ section }}</a>\
@@ -270,110 +275,177 @@
     });
 
     Vue.component('modal', {
-      props: ['order-id'],
-      template: '#modal-template'
-    })
+        props: ['orderId', 'gooddetailList'],
+        template: '<div class="ui modal" id="orderDetail">\
+                        <div class="header">訂貨單明細<span>({{ orderId }})</span></div>\
+                        <div class="scrolling content">\
+                            <table class="ui celled structured table" id="orderListTable">\
+                                <thead>\
+                                    <tr>\
+                                        <th class="collapsing center aligned">商品圖片</th>\
+                                        <th>商品名稱</th>\
+                                        <th class="collapsing center aligned">規格</th>\
+                                        <th class="collapsing center aligned">訂貨量</th>\
+                                    </tr>\
+                                </thead>\
+                                <tbody>\
+                                    <template v-for= "(item, index) in gooddetailList">\
+                                        <tr>\
+                                            <td class="collapsing center aligned" :rowspan="item.Details.length + 1">\
+                                                <div class= "ui mini image" > <img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>\
+                                            </td>\
+                                            <td :rowspan="item.Details.length + 1">\
+                                                <div class= "postDetail">\
+                                                    <p>{{ item.ProductName }}</p>\
+                                                </div>\
+                                            </td>\
+                                        </tr>\
+                                        <tr v-for="(citem, index) in item.Details">\
+                                            <td class="collapsing center aligned">{{ citem.ProductDetailName }}</td>\
+                                            <td class="center aligned">{{ citem.PurchaseQty }}</td>\
+                                        </tr>\
+                                    </template>\
+                                </tbody>\
+                            </table>\
+                        </div>\
+                        <div class="actions"><a class="ui positive right labeled icon button">確定<i class="checkmark icon"></i></a></div>\
+                   </div>',
+    });
 
     var sectiondata = {
       section: '首頁',
       activedark: '訂貨管理'
     }
 
+    var modaldata = {
+        orderid: '',
+        details: []
+    }
+
     var goodslist = new Vue({
         el: "#goodslist",
         data: {
-          header:'訂貨管理',
-          pagesize: [
+            header:'訂貨管理',
+            pagesize: [
             {text: '每頁50筆', value: 50},
             {text: '每頁100筆', value: 100},
-          ],
+            ],
 
-          goodsUrl: 'http://localhost:7398/manage/api/stock/GetPurchaseList',
+            goodsUrl: 'http://localhost:7398/manage/api/stock/GetPurchaseList',
 
-          gooddetailUrl: 'http://localhost:7398/manage/api/stock/GetPurchaseDetail',
+            gooddetailUrl: 'http://localhost:7398/manage/api/stock/GetPurchaseDetail',
 
-          goodModel: {
-            page: 1,
-            count: 0,
-            keyword: '',
-            showcount: 50,
-            total: 0,
-          },
-          msg: '',
-          goodslistdata: [],
-          filteredRowCount: null,
+            confirmpurchaseUrl: 'http://localhost:7398/manage/api/stock/ConfirmPurchase',
 
-          goodDetailModel: {
-            stockID:'',
-          },
+            goodModel: {
+                page: 1,
+                count: 0,
+                keyword: '',
+                showcount: 50,
+                total: 0,
+            },
+            msg: '',
+            goodslistdata: [],
+            filteredRowCount: null,
 
-          goodDetailList: [],
+            goodDetailModel: {
+                stockID:'',
+            },
 
-          orderID:'',
+            confirmPurchaseModel: {
+                stockID: '',
+            },
+
+            goodDetailList: [],
+
+            orderID: '',
+
+            classA: 'ui small button teal',
         },
 
         mounted: function() {
-          this.searchgoods();
+            this.searchgoods();
         },
 
         computed: {
-            pageStart: function(){
-                return (this.goodModel.page - 1) * this.goodModel.showcount;
-            },
-            totalPage: function(){
-                if(this.goodModel.total == 0)
-                    return
-                return Math.ceil(this.goodModel.total / this.goodModel.showcount);
-            },
+                pageStart: function(){
+                    return (this.goodModel.page - 1) * this.goodModel.showcount;
+                },
+                totalPage: function(){
+                    if(this.goodModel.total == 0)
+                        return
+                    return Math.ceil(this.goodModel.total / this.goodModel.showcount);
+                },
         },
 
         methods: {
-          setPage: function(idx){
-              if( idx <= 0 || idx > this.totalPage ){
-                  return;
-              }
-              this.goodModel.page = idx;
-          },
-          searchgoods: function() {
-            var vm = this
-            vm.goodslistdata = [];
-            vm.goodModel.count = 0;
-            vm.goodModel.total = 0;
-            vm.goodModel.page = 1;
-            vm.msg = '' 
-            $.ajax({
-              url: vm.goodsUrl,
-              type:'POST',
-              data : vm.goodModel,
-              success: function(data) {
-                vm.msg = 'ok'
-                vm.goodslistdata = data.data;
-                vm.goodModel.count = data.count;
-                vm.goodModel.total = data.total;
-                vm.goodModel.page = data.page;
+              setPage: function(idx){
+                  if( idx <= 0 || idx > this.totalPage ){
+                      return;
+                  }
+                  this.goodModel.page = idx;
               },
-              error: vm.requestError
-            })
-          },
-          orderDetail: function(detailid, orderid) {
-            var vm = this
-            vm.goodDetailList = [];
-            vm.goodDetailModel.stockID = detailid || ''
-            vm.orderID = orderid;
-            vm.msg = ''
-            $.ajax({
-              url: vm.gooddetailUrl,
-              type:'POST',
-              data : vm.goodDetailModel,
-              success: function(data) {
-                vm.msg = 'ok'
-                vm.goodDetailList = data;
-                $('#orderDetail.ui.modal').modal('show');
+              searchgoods: function() {
+                var vm = this
+                vm.goodslistdata = [];
+                vm.goodModel.count = 0;
+                vm.goodModel.total = 0;
+                vm.goodModel.page = 1;
+                vm.msg = ''
+                $.ajax({
+                  url: vm.goodsUrl,
+                  type:'POST',
+                  data : vm.goodModel,
+                  success: function(data) {
+                    vm.msg = 'ok'
+                    vm.goodslistdata = data.data;
+                    vm.goodModel.count = data.count;
+                    vm.goodModel.total = data.total;
+                    vm.goodModel.page = data.page;
+                  },
+                  error: vm.requestError
+                })
               },
-              error: vm.requestError
-            })
-          },
+              orderDetail: function(detailid, orderid) {
+                var vm = this
+                vm.goodDetailList = [];
+                vm.goodDetailModel.stockID = detailid || ''
+                vm.orderID = orderid;
+                vm.msg = ''
+                $.ajax({
+                  url: vm.gooddetailUrl,
+                  type:'POST',
+                  data : vm.goodDetailModel,
+                  success: function(data) {
+                    vm.msg = 'ok'
+                    vm.goodDetailList = data;
+                    $('#orderDetail.ui.modal').modal('show');
+                  },
+                  error: vm.requestError
+                })
+            },
+
+            orderCheck: function (detailid) {
+                var vm = this
+                vm.confirmPurchaseModel.stockID = detailid;
+                $('#checkOrder.ui.modal').modal('show');
+            },
+
+            confirmPurchase: function () {
+                var vm = this
+                vm.msg = ''
+                $.ajax({
+                    url: vm.confirmpurchaseUrl,
+                    type: 'POST',
+                    data: vm.confirmPurchaseModel,
+                    success: function (data) {
+                        vm.msg = 'ok'
+                        alert('入庫成功');
+                    },
+                    error: vm.requestError
+                })
+            },
         },
     });
-  </script>
+</script>
 </html>
