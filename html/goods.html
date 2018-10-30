@@ -206,9 +206,9 @@
                         <td class="collapsing">
                             <button :class="[classA, item.StockStatus === 0 ? 'disabled' : '']"  v-on:click="orderCheck(item.StockID)"><i class="check icon"></i>{{item.StockStatus ? "確認訂貨" : "已訂貨" }}</button>
                         </td>
-                        <td class="collapsing"><a class="ui small button meia disabled" href="addInstock.html?oid=123455"><i class="check icon"></i>入庫</a></td>
+                        <td class="collapsing"><a :class="[classB, item.StockStatus !== 0 ? 'disabled' : '']" href="addInstock.html?oid=123455"><i class="check icon"></i>入庫</a></td>
                         <td class="collapsing">
-                            <button class="ui icon button blue"><i class="print icon"></i></button>
+                            <!--<button class="ui icon button blue"><i class="print icon"></i></button>-->
                             <button class="ui icon button red"><i class="trash icon"></i></button>
                         </td>
                     </tr>
@@ -327,8 +327,8 @@
         data: {
             header:'訂貨管理',
             pagesize: [
-            {text: '每頁50筆', value: 50},
-            {text: '每頁100筆', value: 100},
+                {text: '每頁50筆', value: 50},
+                {text: '每頁100筆', value: 100},
             ],
 
             goodsUrl: 'http://localhost:7398/manage/api/stock/GetPurchaseList',
@@ -361,6 +361,8 @@
             orderID: '',
 
             classA: 'ui small button teal',
+
+            classB: 'ui small button meia',
         },
 
         mounted: function() {
