@@ -26,7 +26,7 @@
             <div class="content">
                 <p>一但刪除就無法回復，確定刪除這筆資料嗎?</p>
             </div>
-            <div class="actions"><a class="ui negative button">取消</a><a class="ui positive right labeled icon button">確定<i class="checkmark icon"></i></a></div>
+            <div class="actions"><a class="ui negative button">取消</a><a class="ui positive right labeled icon button" v-on:click="delStock()" >確定<i class="checkmark icon"></i></a></div>
         </div>
         <div class="ui mini modal" id="checkOrder">
             <div class="header">確定訂貨？</div>
@@ -36,126 +36,6 @@
             <div class="actions"><a class="ui negative button">取消</a><a class="ui positive right labeled icon button" v-on:click="confirmPurchase()">確定<i class="checkmark icon"></i></a></div>
         </div>
         <modal :order-id="orderID" :gooddetail-list="goodDetailList"></modal>
-        <!--<script type="text/x-template" id="modal-template">
-            <div class="ui modal" id="orderDetail">
-                <div class="header">訂貨單明細<span>({{ orderId }})</span></div>
-                <div class="scrolling content">
-                    <table class="ui celled structured table" id="orderListTable">
-                        <thead>
-                            <tr>
-                                <th class="collapsing center aligned">商品圖片</th>
-                                <th>商品名稱</th>
-                                <th class="collapsing center aligned">規格</th>
-                                <th class="collapsing center aligned">訂貨量</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="collapsing center aligned" rowspan="3">
-                                    <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
-                                </td>
-                                <td rowspan="3">
-                                    <div class="postDetail">
-                                        <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
-                                    </div>
-                                </td>
-                                <td class="collapsing center aligned">藍100</td>
-                                <td class="center aligned">5</td>
-                            </tr>
-                            <tr>
-                                <td class="collapsing center aligned">黑100</td>
-                                <td class="center aligned">2</td>
-                            </tr>
-                            <tr>
-                                <td class="collapsing center aligned">紅100</td>
-                                <td class="center aligned">6</td>
-                            </tr>
-                            <tr>
-                                <td class="collapsing center aligned" rowspan="3">
-                                    <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
-                                </td>
-                                <td rowspan="3">
-                                    <div class="postDetail">
-                                        <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
-                                    </div>
-                                </td>
-                                <td class="collapsing center aligned">藍100</td>
-                                <td class="center aligned">5</td>
-                            </tr>
-                            <tr>
-                                <td class="collapsing center aligned">黑100</td>
-                                <td class="center aligned">2</td>
-                            </tr>
-                            <tr>
-                                <td class="collapsing center aligned">紅100</td>
-                                <td class="center aligned">6</td>
-                            </tr>
-                            <tr>
-                                <td class="collapsing center aligned" rowspan="3">
-                                    <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
-                                </td>
-                                <td rowspan="3">
-                                    <div class="postDetail">
-                                        <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
-                                    </div>
-                                </td>
-                                <td class="collapsing center aligned">藍100</td>
-                                <td class="center aligned">5</td>
-                            </tr>
-                            <tr>
-                                <td class="collapsing center aligned">黑100</td>
-                                <td class="center aligned">2</td>
-                            </tr>
-                            <tr>
-                                <td class="collapsing center aligned">紅100</td>
-                                <td class="center aligned">6</td>
-                            </tr>
-                            <tr>
-                                <td class="collapsing center aligned" rowspan="3">
-                                    <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
-                                </td>
-                                <td rowspan="3">
-                                    <div class="postDetail">
-                                        <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
-                                    </div>
-                                </td>
-                                <td class="center collapsing aligned">藍100</td>
-                                <td class="center aligned">5</td>
-                            </tr>
-                            <tr>
-                                <td class="center collapsing aligned">黑100</td>
-                                <td class="center aligned">2</td>
-                            </tr>
-                            <tr>
-                                <td class="center collapsing aligned">紅100</td>
-                                <td class="center aligned">6</td>
-                            </tr>
-                            <tr>
-                                <td class="collapsing center aligned" rowspan="3">
-                                    <div class="ui mini image"><img class="listCover" src="images/blankImg.png" style="background-image:url(https://scontent.ftpe7-1.fna.fbcdn.net/v/t1.0-0/q85/s600x600/19248044_10213997632321634_3545526173316857080_n.jpg?_nc_fx=ftpe7-1&amp;oh=754a6382adaa05dbde08ea9b6dc47676&amp;oe=5AC6D83C)" alt=""></div>
-                                </td>
-                                <td rowspan="3">
-                                    <div class="postDetail">
-                                        <p>🔺 不買會後悔！拿到會驚艷🔺質料超好條紋補丁居家服套裝</p>
-                                    </div>
-                                </td>
-                                <td class="center collapsing aligned">藍100</td>
-                                <td class="center aligned">5</td>
-                            </tr>
-                            <tr>
-                                <td class="center collapsing aligned">黑100</td>
-                                <td class="center aligned">2</td>
-                            </tr>
-                            <tr>
-                                <td class="center collapsing aligned">紅100</td>
-                                <td class="center aligned">6</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="actions"><a class="ui right labeled icon button blue">列印<i class="print icon"></i></a><a class="ui positive right labeled icon button">確定<i class="checkmark icon"></i></a></div>
-            </div>
-        </script>-->
         <div class="ui fixed menu">
             <div class="ui container">
                 <a class="header item" href="#"><img class="logo" src="images/logo2.png"></a>
@@ -209,7 +89,7 @@
                         <td class="collapsing"><a :class="[classB, item.StockStatus !== 0 ? 'disabled' : '']" href="addInstock.html?oid=123455"><i class="check icon"></i>入庫</a></td>
                         <td class="collapsing">
                             <!--<button class="ui icon button blue"><i class="print icon"></i></button>-->
-                            <button class="ui icon button red"><i class="trash icon"></i></button>
+                            <button class="ui icon button red" v-on:click="chkDelStock(index,item.StockID)"><i class="trash icon"></i></button>
                         </td>
                     </tr>
                 </tbody>
@@ -337,6 +217,8 @@
 
             confirmpurchaseUrl: 'http://localhost:7398/manage/api/stock/ConfirmPurchase',
 
+            cancelInStockUrl: 'http://localhost:7398/manage/api/stock/CancelInStock',
+
             goodModel: {
                 page: 1,
                 count: 0,
@@ -354,6 +236,11 @@
 
             confirmPurchaseModel: {
                 stockID: '',
+            },
+
+            delStockModel: {
+                stockID: '',
+                indexID: '',
             },
 
             goodDetailList: [],
@@ -443,6 +330,29 @@
                     success: function (data) {
                         vm.msg = 'ok'
                         alert('入庫成功');
+                    },
+                    error: vm.requestError
+                })
+            },
+
+            chkDelStock: function (index, delid) {
+                var vm = this
+                vm.delStockModel.stockID = delid;
+                vm.delStockModel.indexID = index;
+                $('#checkDel.ui.modal').modal('show');
+            },
+
+            delStock: function() {
+                var vm = this
+                vm.msg = ''
+                $.ajax({
+                    url: vm.cancelInStockUrl,
+                    type: 'POST',
+                    data: vm.delStockModel,
+                    success: function (data) {
+                        vm.msg = 'ok'
+                        vm.goodslistdata.splice(vm.delStockModel.indexID,1);
+                        alert('刪除成功');
                     },
                     error: vm.requestError
                 })
